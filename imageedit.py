@@ -1,7 +1,7 @@
 FILE_HEADER_SIZE = 12
 
-# message = input("Message to hide: ")
-message = "A SUPER SECRET MESSAGE"
+message = input("Message to hide: ")
+# message = "A SUPER SECRET MESSAGE"
 
 infile = open("LAND2.BMP", "rb")
 raw_bytes = infile.read()
@@ -30,7 +30,7 @@ file_bytes[0xB] = new_offset_bytes[1]
 file_bytes[0xC] = new_offset_bytes[2]
 file_bytes[0xD] = new_offset_bytes[3]
 
-bin_message.extend(data_offset.to_bytes(4, "big"))
+bin_message.extend(data_offset.to_bytes(4, "little"))
 
 i = data_offset
 while i != new_offset:
